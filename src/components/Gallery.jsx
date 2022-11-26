@@ -19,7 +19,7 @@ const styles = {
   },
 };
 
-function Skills(props) {
+function Gallery(props) {
   const { header } = props;
   const [data, setData] = useState(null);
 
@@ -30,7 +30,7 @@ function Skills(props) {
   );
 
   useEffect(() => {
-    fetch(endpoints.skills, {
+    fetch(endpoints.gallery, {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -46,7 +46,7 @@ function Skills(props) {
           <div className="section-content-container">
             <Container>
               {renderSkillsIntro(data.intro)}
-              {data.skills?.map((rows) => (
+              {data.gallery?.map((rows) => (
                 <div key={rows.title}>
                   <br />
                   <h3>{rows.title}</h3>
@@ -70,8 +70,8 @@ function Skills(props) {
   );
 }
 
-Skills.propTypes = {
+Gallery.propTypes = {
   header: PropTypes.string.isRequired,
 };
 
-export default Skills;
+export default Gallery;
